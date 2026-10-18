@@ -1,0 +1,852 @@
+/* ============================================================
+   HERO / INTRO – Sci-Fi Scanner Theme
+   ============================================================ */
+
+/* ---------- colour tokens ---------- */
+:root {
+  --hud-cyan: #00e5ff;
+  --hud-blue: #149cea;
+  --hud-green: #39ff14;
+  --hud-dim: rgba(0, 229, 255, 0.15);
+  --hud-glow: 0 0 12px rgba(0, 229, 255, 0.6),
+    0 0 40px rgba(0, 229, 255, 0.15);
+  --panel-bg: rgba(5, 15, 25, 0.75);
+  --font-hud: 'Orbitron', sans-serif;
+  --font-body: 'Rajdhani', sans-serif;
+}
+
+/* ---------- section ---------- */
+.hero {
+  position: relative;
+  z-index: 2;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6rem 2rem 2rem;
+  box-sizing: border-box;
+  overflow: hidden;
+  /* override the generic section style from main.css */
+  background: transparent !important;
+  backdrop-filter: none !important;
+  border-radius: 0 !important;
+  margin: 0 !important;
+}
+
+.hero-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  max-width: 1400px;
+  width: 100%;
+}
+
+/* ============================
+   LEFT – Info Panel
+   ============================ */
+.hero-info {
+  position: relative;
+  flex: 1 1 50%;
+  max-width: 700px;
+  padding: 3.5rem 3rem;
+  background: var(--panel-bg);
+  border: 1px solid rgba(0, 229, 255, 0.25);
+  border-radius: 4px;
+  box-shadow: var(--hud-glow);
+
+  /* sequenced entrance */
+  opacity: 0;
+  transform: translateX(-80px) skewX(5deg);
+  filter: blur(5px);
+  animation: infoTechReveal 0.5s 3.0s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.hero-bottom-bar {
+  position: relative;
+  flex: 1 1 50%;
+  max-width: 650px;
+  padding-top: 50px;
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  /* staggered entrance */
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeSlideUp 0.4s 5.2s ease forwards;
+}
+
+/* Animated scanline inside the panel */
+.info-scanline {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--hud-cyan), transparent);
+  opacity: 0.7;
+  animation: scanDown 3s linear infinite;
+}
+
+@keyframes scanDown {
+  0% {
+    top: 0;
+  }
+
+  100% {
+    top: 100%;
+  }
+}
+
+/* ---- HUD corner brackets ---- */
+.hud-corner {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-color: var(--hud-cyan);
+  border-style: solid;
+  border-width: 0;
+  pointer-events: none;
+}
+
+.hud-tl {
+  top: -1px;
+  left: -1px;
+  border-top-width: 2px;
+  border-left-width: 2px;
+}
+
+.hud-tr {
+  top: -1px;
+  right: -1px;
+  border-top-width: 2px;
+  border-right-width: 2px;
+}
+
+.hud-bl {
+  bottom: -1px;
+  left: -1px;
+  border-bottom-width: 2px;
+  border-left-width: 2px;
+}
+
+.hud-br {
+  bottom: -1px;
+  right: -1px;
+  border-bottom-width: 2px;
+  border-right-width: 2px;
+}
+
+/* ---- Name ---- */
+.hero-name {
+  font-family: var(--font-hud);
+  font-weight: 700;
+  font-size: 2rem;
+  letter-spacing: 0.08em;
+  color: #fff;
+  margin: 0 0 0.6rem;
+  text-shadow: 0 0 8px var(--hud-cyan);
+}
+
+/* ---- Tagline ---- */
+.hero-tagline {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 1.15rem;
+  color: rgba(255, 255, 255, 0.92);
+  margin: 0 0 2rem;
+  letter-spacing: 0.04em;
+  line-height: 1.5;
+}
+
+/* ---- Social / link buttons ---- */
+.hero-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+.hero-link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 1.2rem;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--hud-cyan);
+  text-decoration: none;
+  border: 1px solid rgba(0, 229, 255, 0.35);
+  border-radius: 4px;
+  background: rgba(0, 229, 255, 0.06);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.hero-link-btn:hover {
+  background: rgba(0, 229, 255, 0.18);
+  border-color: var(--hud-cyan);
+  box-shadow: 0 0 14px rgba(0, 229, 255, 0.35);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.hero-link-btn i,
+.btn-svg-icon {
+  font-size: 1.2rem;
+  width: 1.35rem;
+  height: 1.35rem;
+  flex-shrink: 0;
+}
+
+.hero-bottom-bar-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 1.2rem;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--hud-cyan);
+  text-decoration: none;
+  border: 1px solid rgba(0, 229, 255, 0.35);
+  border-radius: 4px;
+  background: rgba(0, 229, 255, 0.06);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.hero-bottom-bar-btn:hover {
+  background: rgba(0, 229, 255, 0.18);
+  border-color: var(--hud-cyan);
+  box-shadow: 0 0 14px rgba(0, 229, 255, 0.35);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.hero-bottom-bar-btn i {
+  font-size: 1.1rem;
+}
+
+/* ============================
+   CONNECTOR (between panels)
+   ============================ */
+.hero-connector {
+  position: relative;
+  flex: 1 1 auto;
+  min-width: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  animation: fadeConnector 0.3s 2.9s forwards;
+}
+
+.connector-line {
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--hud-cyan), transparent 30%, transparent 70%, var(--hud-cyan));
+  opacity: 0.5;
+}
+
+.connector-pulse {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--hud-cyan);
+  box-shadow: 0 0 10px var(--hud-cyan);
+  animation: pulseSlide 2s ease-in-out infinite;
+}
+
+@keyframes pulseSlide {
+  0% {
+    left: 0;
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  90% {
+    opacity: 1;
+  }
+
+  100% {
+    left: calc(100% - 8px);
+    opacity: 0;
+  }
+}
+
+/* ============================
+   RIGHT – Scanner Frame
+   ============================ */
+.hero-scanner {
+  position: relative;
+  width: 380px;
+  height: 380px;
+  flex-shrink: 0;
+
+  opacity: 0;
+  transform: scale(0.5);
+  filter: brightness(2) contrast(2);
+  animation: scannerTechReveal 0.5s 2.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes scannerTechReveal {
+  0% { opacity: 0; transform: scale(0.5); filter: brightness(2) contrast(2); }
+  50% { opacity: 1; transform: scale(1.05); filter: brightness(1.5) contrast(1.2); }
+  100% { opacity: 1; transform: scale(1); filter: brightness(1) contrast(1); }
+}
+
+/* ---- rings ---- */
+.scanner-ring {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.scanner-ring svg {
+  width: 100%;
+  height: 100%;
+}
+
+.scanner-ring circle,
+.scanner-ring line {
+  fill: none;
+  stroke: var(--hud-cyan);
+  stroke-width: 1.5;
+  opacity: 0.6;
+}
+
+.scanner-ring--outer {
+  animation: ringRotate 25s linear infinite;
+}
+
+.scanner-ring--mid {
+  animation: ringRotate 35s linear infinite reverse;
+}
+
+@keyframes ringRotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ---- arcs ---- */
+.scanner-arc {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.scanner-arc svg {
+  width: 100%;
+  height: 100%;
+}
+
+.scanner-arc path,
+.scanner-arc circle {
+  fill: none;
+  stroke: var(--hud-blue);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  opacity: 0.5;
+}
+
+.scanner-arc--1 {
+  animation: ringRotate 18s linear infinite;
+}
+
+.scanner-arc--2 {
+  animation: ringRotate 22s linear infinite reverse;
+}
+
+.scanner-arc--3 {
+  animation: ringRotate 30s linear infinite;
+}
+
+/* ---- sweep ---- */
+.scanner-sweep {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 50%;
+  height: 2px;
+  transform-origin: left center;
+  background: linear-gradient(90deg, var(--hud-cyan), transparent);
+  opacity: 0.45;
+  animation: sweepSpin 4s linear infinite;
+}
+
+@keyframes sweepSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ---- crosshair ---- */
+.scanner-crosshair {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.18;
+}
+
+.crosshair-h,
+.crosshair-v {
+  position: absolute;
+  background: var(--hud-cyan);
+}
+
+.crosshair-h {
+  top: 50%;
+  left: 20%;
+  right: 20%;
+  height: 1px;
+}
+
+.crosshair-v {
+  left: 50%;
+  top: 20%;
+  bottom: 20%;
+  width: 1px;
+}
+
+/* ---- photo ---- */
+.scanner-photo-wrap {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 240px;
+  height: 240px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid var(--hud-cyan);
+  box-shadow: 0 0 20px rgba(0, 229, 255, 0.3),
+    inset 0 0 30px rgba(0, 229, 255, 0.08);
+}
+
+.scanner-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  /* Fallback gradient when no image is loaded */
+  background: linear-gradient(135deg, #0a1628, #132744);
+}
+
+/* scan overlay on photo */
+/* .photo-scan-overlay {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(0deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 229, 255, 0.04) 2px,
+      rgba(0, 229, 255, 0.04) 4px);
+  pointer-events: none;
+  animation: photoScanPulse 3s ease-in-out infinite;
+} */
+
+@keyframes photoScanPulse {
+
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+
+  50% {
+    opacity: 0.9;
+  }
+}
+
+/* ---- HUD text readouts ---- */
+.scanner-hud-data {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-hud);
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  color: var(--hud-cyan);
+  opacity: 0;
+  white-space: nowrap;
+}
+
+.hud-data--top {
+  top: -25px;
+  animation: hudDataReveal 0.2s 2.6s forwards, hudBlink 2s steps(1) 2.8s infinite;
+}
+
+.hud-data--bottom {
+  bottom: -25px;
+  animation: hudDataReveal 0.2s 2.7s forwards, hudBlink 2s steps(1) 2.9s infinite;
+}
+
+@keyframes hudDataReveal {
+  0% { opacity: 0; transform: translateX(-50%) scale(0.8); }
+  100% { opacity: 0.9; transform: translateX(-50%) scale(1); }
+}
+
+@keyframes hudBlink {
+
+  0%,
+  90% {
+    opacity: 0.9;
+  }
+
+  91%,
+  100% {
+    opacity: 0;
+  }
+}
+
+/* ============================
+   Entrance animation helper
+   ============================ */
+@keyframes infoTechReveal {
+  0% { opacity: 0; transform: translateX(-80px) skewX(5deg); filter: blur(5px); box-shadow: 0 0 0 rgba(0, 229, 255, 0); }
+  70% { opacity: 1; transform: translateX(10px) skewX(-2deg); filter: blur(0px); box-shadow: 0 0 30px rgba(0, 229, 255, 0.8); }
+  100% { opacity: 1; transform: translateX(0) skewX(0); filter: blur(0); box-shadow: var(--hud-glow); }
+}
+
+@keyframes fadeSlideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeConnector {
+  to { opacity: 1; }
+}
+
+/* ============================
+   RESPONSIVE
+   ============================ */
+@media (max-width: 900px) {
+  .hero {
+    padding: 5rem 1rem 2rem;
+  }
+
+  .hero-inner {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .hero-info {
+    flex: none;
+    width: 100%;
+    max-width: 440px;
+    text-align: center;
+    transform: translateY(-20px);
+    animation-name: fadeSlideDown;
+  }
+
+  @keyframes fadeSlideDown {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .hero-links {
+    justify-content: center;
+  }
+
+  .hero-connector {
+    width: 2px;
+    height: 50px;
+    flex-direction: column;
+  }
+
+  .connector-line {
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg, var(--hud-cyan), transparent 30%, transparent 70%, var(--hud-cyan));
+  }
+
+  .connector-pulse {
+    animation-name: pulseSlideVert;
+  }
+
+  @keyframes pulseSlideVert {
+    0% {
+      top: 0;
+      opacity: 0;
+    }
+
+    10% {
+      opacity: 1;
+    }
+
+    90% {
+      opacity: 1;
+    }
+
+    100% {
+      top: calc(100% - 8px);
+      opacity: 0;
+    }
+  }
+
+  .hero-scanner {
+    width: 260px;
+    height: 260px;
+  }
+
+  .scanner-photo-wrap {
+    width: 160px;
+    height: 160px;
+  }
+
+  .hero-name {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 4.5rem 0.75rem 1.5rem;
+  }
+
+  .hero-name {
+    font-size: 1.25rem;
+  }
+
+  .hero-tagline {
+    font-size: 1rem;
+  }
+
+  .hero-scanner {
+    width: 220px;
+    height: 220px;
+  }
+
+  .scanner-photo-wrap {
+    width: 130px;
+    height: 130px;
+  }
+
+  .hero-link-btn {
+    padding: 0.45rem 0.9rem;
+    font-size: 0.85rem;
+  }
+}/* ============================
+   RESUME MODAL
+   ============================ */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal-overlay.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+.modal-content {
+  position: relative;
+  width: 90%;
+  max-width: 900px;
+  height: 85vh;
+  background: var(--panel-bg);
+  border: 1px solid rgba(0, 229, 255, 0.25);
+  border-radius: 4px;
+  box-shadow: var(--hud-glow);
+  padding: 2.5rem 2rem 2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  
+  /* Open vertically in both directions from center */
+  clip-path: polygon(0 50%, 100% 50%, 100% 50%, 0 50%);
+  transition: clip-path 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.modal-overlay.active .modal-content {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.resume-container {
+  flex: 1;
+  width: 100%;
+  border: 1px solid rgba(0, 229, 255, 0.15);
+  background: rgba(0, 0, 0, 0.3);
+  overflow-y: auto;
+  display: block;
+}
+
+.resume-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-shrink: 0;
+}
+
+/* ============================
+   OVERFLOW FIX — buttons never leave the panel
+   ============================ */
+.hero-link-btn,
+.hero-bottom-bar-btn {
+  white-space: nowrap;
+}
+
+@media (max-width: 900px) {
+
+  /* width:100% + padding made the panel wider than the screen */
+  .hero-info {
+    box-sizing: border-box;
+  }
+
+  .hero-bottom-bar {
+    justify-content: center;
+    padding-top: 2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-info {
+    padding: 2.5rem 1.25rem;
+  }
+
+  .hero-links {
+    gap: 0.6rem;
+  }
+
+  .hero-bottom-bar {
+    gap: 0.75rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .hero-info {
+    padding: 2rem 1rem;
+  }
+
+  .hero-link-btn,
+  .hero-bottom-bar-btn {
+    padding: 0.45rem 0.8rem;
+    font-size: 0.85rem;
+  }
+}
+
+/* ============================
+   RETURNING VISITORS — skip intro
+   ============================ */
+.intro-skip .hero-info,
+.intro-skip .hero-scanner,
+.intro-skip .hero-bottom-bar,
+.intro-skip .hero-connector {
+  opacity: 1;
+  transform: none;
+  filter: none;
+  animation: none;
+}
+
+.intro-skip .scanner-hud-data {
+  opacity: 0.9;
+  animation: hudBlink 2s steps(1) infinite;
+}
+
+/* ============================
+   REDUCED MOTION
+   ============================ */
+@media (prefers-reduced-motion: reduce) {
+
+  .hero .hero-info,
+  .hero .hero-scanner,
+  .hero .hero-bottom-bar,
+  .hero .hero-connector {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    animation: none;
+  }
+
+  .hero .scanner-ring,
+  .hero .scanner-arc,
+  .hero .photo-scan-overlay {
+    animation: none;
+  }
+
+  .hero .scanner-sweep,
+  .hero .connector-pulse,
+  .hero .info-scanline {
+    display: none;
+  }
+
+  .hero .scanner-hud-data {
+    animation: none;
+    opacity: 0.9;
+  }
+
+  .hero-link-btn:hover,
+  .hero-bottom-bar-btn:hover {
+    transform: none;
+  }
+
+  .modal-overlay,
+  .modal-content {
+    transition: none;
+  }
+}
+
+/* ============================
+   LINK BUTTON LAYOUT
+   Desktop: all six social buttons on a single line
+   Mobile:  every button stacked, one below the other
+   ============================ */
+@media (min-width: 1101px) {
+  .hero-links {
+    flex-wrap: nowrap;
+    gap: clamp(0.35rem, 0.6vw, 0.6rem);
+  }
+
+  .hero-links .hero-link-btn {
+    flex: 0 1 auto;
+    min-width: 0;
+    gap: 0.4rem;
+    padding: 0.5rem clamp(0.5rem, 0.9vw, 0.85rem);
+    font-size: clamp(0.8rem, 1vw, 0.95rem);
+  }
+}
+
+@media (max-width: 600px) {
+
+  .hero-links,
+  .hero-bottom-bar {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: stretch;
+  }
+
+  .hero-links .hero-link-btn,
+  .hero-bottom-bar .hero-bottom-bar-btn {
+    width: 100%;
+    box-sizing: border-box;
+    justify-content: center;
+  }
+}

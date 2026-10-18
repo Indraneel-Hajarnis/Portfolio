@@ -1,0 +1,290 @@
+/* ============================================================
+   LOADING SCREEN — Futuristic Segment Bar
+   ============================================================ */
+
+/* ---------- Screen container ---------- */
+#loading-screen {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  overflow: hidden;
+
+  /* Futuristic deep-space nebula bg: layered gradients + subtle tech grid
+     intentionally different from the plain starfield on the main page */
+  background:
+    repeating-linear-gradient(0deg,
+      transparent,
+      transparent 59px,
+      rgba(0, 229, 255, 0.03) 60px),
+    repeating-linear-gradient(90deg,
+      transparent,
+      transparent 59px,
+      rgba(0, 229, 255, 0.03) 60px),
+    radial-gradient(ellipse 80% 60% at 20% 30%, rgba(13, 32, 58, 0.95) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 50% at 80% 70%, rgba(5, 16, 36, 0.9) 0%, transparent 65%),
+    radial-gradient(ellipse 100% 100% at 50% 50%, rgb(8, 16, 29) 0%, #090a0f 100%);
+
+  transform: translateY(0);
+  transition: transform 0.8s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+/* Dense star field — small stars (::before) + larger brighter stars (::after)
+   uses the same box-shadow technique as the main page starfield */
+#loading-screen::before,
+#loading-screen::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 1px;
+  pointer-events: none;
+}
+
+/* Layer 1 — ~120 small white stars scattered across the screen */
+#loading-screen::before {
+  box-shadow:
+    /* row-like scatter across a 1920×1080 viewport space */
+    83px 142px #fff, 312px 47px #fff, 591px 203px #fff, 784px 89px #fff, 1023px 167px #fff,
+    1198px 34px #fff, 1401px 112px #fff, 1687px 78px #fff, 1834px 201px #fff, 45px 301px #fff,
+    271px 389px #fff, 508px 267px #fff, 743px 412px #fff, 967px 356px #fff, 1134px 289px #fff,
+    1356px 401px #fff, 1589px 344px #fff, 1756px 402px #fff, 1890px 318px #fff, 128px 512px #fff,
+    349px 578px #fff, 617px 491px #fff, 832px 563px #fff, 1047px 508px #fff, 1261px 572px #fff,
+    1478px 489px #fff, 1703px 541px #fff, 1867px 497px #fff, 67px 689px #fff, 289px 712px #fff,
+    534px 634px #fff, 778px 701px #fff, 992px 668px #fff, 1204px 723px #fff, 1416px 655px #fff,
+    1634px 698px #fff, 1801px 632px #fff, 154px 812px #fff, 398px 867px #fff, 623px 789px #fff,
+    847px 834px #fff, 1067px 801px #fff, 1289px 856px #fff, 1512px 811px #fff, 1728px 869px #fff,
+    1893px 823px #fff, 237px 956px #fff, 473px 923px #fff, 712px 978px #fff, 938px 945px #fff,
+    1158px 1002px #fff, 1379px 967px #fff, 1601px 1023px #fff, 1815px 989px #fff, 92px 1067px #fff,
+    334px 1034px #fff, 567px 1089px #fff, 801px 1056px #fff, 1034px 1078px #fff, 1246px 1034px #fff,
+    /* second pass — fill gaps */
+    194px 58px #fff, 427px 134px #fff, 656px 19px #fff, 891px 156px #fff, 1112px 23px #fff,
+    1323px 189px #fff, 1556px 67px #fff, 1745px 145px #fff, 38px 223px #fff, 263px 256px #fff,
+    492px 178px #fff, 727px 234px #fff, 948px 212px #fff, 1167px 245px #fff, 1389px 198px #fff,
+    1623px 267px #fff, 1812px 223px #fff, 178px 434px #fff, 413px 467px #fff, 647px 423px #fff,
+    879px 478px #fff, 1098px 445px #fff, 1312px 489px #fff, 1545px 456px #fff, 1778px 423px #fff,
+    104px 601px #fff, 342px 645px #fff, 578px 612px #fff, 812px 656px #fff, 1023px 623px #fff,
+    1245px 667px #fff, 1467px 634px #fff, 1689px 678px #fff, 1856px 645px #fff, 216px 767px #fff,
+    451px 734px #fff, 689px 778px #fff, 923px 745px #fff, 1134px 789px #fff, 1356px 756px #fff,
+    1578px 800px #fff, 1789px 767px #fff, 312px 912px #fff, 549px 878px #fff, 786px 923px #fff,
+    1012px 889px #fff, 1234px 934px #fff, 1456px 900px #fff, 1678px 945px #fff, 1845px 912px #fff,
+    167px 1012px #fff, 401px 1045px #fff, 637px 1001px #fff, 872px 1056px #fff, 1089px 1023px #fff;
+  opacity: 0.75;
+}
+
+/* Layer 2 — ~40 larger/brighter stars + cyan-tinted ones (matching main page accent) */
+#loading-screen::after {
+  width: 2px;
+  height: 2px;
+  box-shadow:
+    /* white brighter stars */
+    156px 89px rgba(255, 255, 255, 0.9), 423px 234px rgba(255, 255, 255, 0.85),
+    689px 67px rgba(255, 255, 255, 0.9), 934px 312px rgba(255, 255, 255, 0.8),
+    1178px 145px rgba(255, 255, 255, 0.9), 1445px 89px rgba(255, 255, 255, 0.85),
+    1712px 267px rgba(255, 255, 255, 0.9), 278px 489px rgba(255, 255, 255, 0.8),
+    567px 612px rgba(255, 255, 255, 0.85), 845px 445px rgba(255, 255, 255, 0.9),
+    1123px 567px rgba(255, 255, 255, 0.8), 1389px 489px rgba(255, 255, 255, 0.85),
+    1656px 612px rgba(255, 255, 255, 0.9), 389px 778px rgba(255, 255, 255, 0.8),
+    678px 834px rgba(255, 255, 255, 0.85), 956px 712px rgba(255, 255, 255, 0.9),
+    1234px 856px rgba(255, 255, 255, 0.8), 1501px 778px rgba(255, 255, 255, 0.85),
+    1767px 934px rgba(255, 255, 255, 0.9), 512px 1023px rgba(255, 255, 255, 0.8),
+    /* cyan-tinted accent stars — echo #00e5ff from main page */
+    234px 178px rgba(0, 229, 255, 0.7), 712px 356px rgba(0, 229, 255, 0.65),
+    1089px 89px rgba(0, 229, 255, 0.7), 1534px 267px rgba(0, 229, 255, 0.65),
+    1823px 445px rgba(0, 229, 255, 0.7), 345px 623px rgba(0, 229, 255, 0.65),
+    823px 801px rgba(0, 229, 255, 0.7), 1267px 534px rgba(0, 229, 255, 0.65),
+    1678px 712px rgba(0, 229, 255, 0.7), 456px 956px rgba(0, 229, 255, 0.65),
+    /* slightly larger blue-white stars */
+    89px 512px rgba(180, 220, 255, 0.6), 1345px 712px rgba(180, 220, 255, 0.55),
+    789px 189px rgba(180, 220, 255, 0.6), 1901px 623px rgba(180, 220, 255, 0.55),
+    567px 889px rgba(180, 220, 255, 0.6);
+  opacity: 1;
+}
+
+
+/* Slide-up exit */
+#loading-screen.slide-up {
+  transform: translateY(-100vh);
+}
+
+/* ---------- Widget wrapper ---------- */
+.load-widget {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  filter: drop-shadow(0 0 20px rgba(0, 160, 200, 0.2));
+}
+
+/* ---------- "LOADING..." label ---------- */
+.load-label {
+  font-family: 'Orbitron', 'Rajdhani', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  color: #e3f1f8;
+  text-transform: uppercase;
+  padding-left: 6px;
+  animation: loadBlink 1.8s ease-in-out infinite;
+}
+
+@keyframes loadBlink {
+
+  0%,
+  40% {
+    opacity: 1;
+  }
+
+  55%,
+  100% {
+    opacity: 0;
+  }
+}
+
+/* ---------- Bar outer frame ---------- */
+.load-bar-frame {
+  position: relative;
+  width: 420px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* Decorative rails */
+.load-rail {
+  height: 2px;
+  background: linear-gradient(90deg,
+      transparent 0%,
+      #2a4a5a 10%,
+      #4a6a7a 50%,
+      #2a4a5a 90%,
+      transparent 100%);
+  border-radius: 1px;
+}
+
+/* ---------- Segment track ---------- */
+.load-track {
+  display: flex;
+  gap: 4px;
+  align-items: stretch;
+  background: linear-gradient(180deg, #151f28 0%, #0a1318 100%);
+  border: 1px solid #243038;
+  border-radius: 3px;
+  padding: 6px 8px;
+  box-shadow:
+    inset 0 2px 8px rgba(0, 0, 0, 0.7),
+    0 0 0 1px rgba(255, 255, 255, 0.03);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Each segment cell */
+.load-seg {
+  flex: 1;
+  height: 42px;
+  border-radius: 2px;
+  background: linear-gradient(180deg, #1a2e3c 0%, #0e1c26 100%);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.5);
+}
+
+/* Sweeping blue/cyan highlight band */
+.load-track::after {
+  content: '';
+  position: absolute;
+  top: 6px;
+  bottom: 6px;
+  left: 0;
+  width: 22%;
+  background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(15, 100, 160, 0.5) 18%,
+      rgba(25, 145, 210, 0.85) 40%,
+      rgba(0, 200, 255, 1.00) 55%,
+      rgba(25, 145, 210, 0.85) 70%,
+      rgba(15, 100, 160, 0.5) 85%,
+      transparent 100%);
+  mix-blend-mode: screen;
+  border-radius: 2px;
+  animation: segSweep 1.6s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes segSweep {
+  0% {
+    transform: translateX(-110%);
+  }
+
+  100% {
+    transform: translateX(560%);
+  }
+}
+
+/* Corner accent brackets */
+.load-corner {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-color: #4ab0cc;
+  border-style: solid;
+  border-width: 0;
+}
+
+.load-corner--tl {
+  top: -1px;
+  left: -1px;
+  border-top-width: 2px;
+  border-left-width: 2px;
+}
+
+.load-corner--tr {
+  top: -1px;
+  right: -1px;
+  border-top-width: 2px;
+  border-right-width: 2px;
+}
+
+.load-corner--bl {
+  bottom: -1px;
+  left: -1px;
+  border-bottom-width: 2px;
+  border-left-width: 2px;
+}
+
+.load-corner--br {
+  bottom: -1px;
+  right: -1px;
+  border-bottom-width: 2px;
+  border-right-width: 2px;
+}
+
+/* ── Returning visitors: skip the loader entirely ── */
+.intro-skip #loading-screen {
+  display: none !important;
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  #loading-screen {
+    transition: none;
+  }
+
+  .load-label {
+    animation: none;
+    opacity: 1;
+  }
+
+  .load-track::after {
+    animation: none;
+    display: none;
+  }
+}

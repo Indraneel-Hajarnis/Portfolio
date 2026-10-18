@@ -1,0 +1,258 @@
+/* ============================================================
+   ABOUT — three information cards (replace the photo on the left)
+   Sci-fi HUD version of: Current / Academic Highlights / Currently Exploring
+   ============================================================ */
+
+/* ── Left column ── */
+.about-cards-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+/* desktop: cards on the left (a little wider than the old photo), info fills the rest */
+@media (min-width: 1025px) {
+  .about-cards-col {
+    flex: 0 0 38%;
+    max-width: 38%;
+  }
+
+  .about-inner .about-info-col {
+    flex: 1 1 0;
+    width: auto;
+    max-width: none;
+    min-width: 0;
+  }
+}
+
+/* tablet / mobile: info first, cards underneath */
+@media (max-width: 1024px) {
+  .about-cards-col {
+    order: 2;
+    width: 100%;
+  }
+}
+
+/* ── One card ── */
+.about-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  column-gap: 1.1rem;
+  align-items: start;
+  align-content: center;
+  flex: 1 1 auto; /* cards share the full height of the panel */
+  padding: 1.25rem 3rem 1.35rem 1.25rem;
+  box-sizing: border-box;
+  background: rgba(0, 229, 255, 0.04);
+  border: 1px solid rgba(0, 229, 255, 0.25);
+  border-radius: 4px;
+  transition: border-color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-card:hover {
+  border-color: var(--hud-cyan, #00e5ff);
+  background: rgba(0, 229, 255, 0.08);
+  box-shadow: 0 0 16px rgba(0, 229, 255, 0.25);
+}
+
+/* small HUD corner ticks */
+.about-card::before,
+.about-card::after {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border: 0 solid var(--hud-cyan, #00e5ff);
+  opacity: 0.85;
+  pointer-events: none;
+}
+
+.about-card::before {
+  top: -1px;
+  left: -1px;
+  border-top-width: 2px;
+  border-left-width: 2px;
+}
+
+.about-card::after {
+  bottom: -1px;
+  right: -1px;
+  border-bottom-width: 2px;
+  border-right-width: 2px;
+}
+
+.about-card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  color: var(--hud-cyan, #00e5ff);
+  background: rgba(0, 229, 255, 0.1);
+  border: 1px solid rgba(0, 229, 255, 0.35);
+  border-radius: 4px;
+  box-shadow: inset 0 0 12px rgba(0, 229, 255, 0.08);
+}
+
+.about-card-icon svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.about-card-index {
+  position: absolute;
+  top: 1rem;
+  right: 1.1rem;
+  font-family: var(--font-hud, 'Orbitron', sans-serif);
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  color: var(--hud-cyan, #00e5ff);
+}
+
+.about-card-body {
+  min-width: 0;
+}
+
+/* heading, e.g. CURRENT */
+.about-card-label {
+  margin: 0.15rem 0 0.55rem;
+  font-family: var(--font-hud, 'Orbitron', sans-serif);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--hud-cyan, #00e5ff);
+}
+
+/* subheading */
+.about-card-title {
+  margin: 0 0 0.3rem;
+  font-family: var(--font-body, 'Rajdhani', sans-serif);
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #fff;
+  text-shadow: 0 0 8px rgba(0, 229, 255, 0.35);
+}
+
+.about-card-text {
+  margin: 0;
+  font-family: var(--font-body, 'Rajdhani', sans-serif);
+  font-size: 1.05rem;
+  font-weight: 500;
+  line-height: 1.6;
+  color: rgba(244, 248, 251, 0.94);
+}
+
+/* ── Academic highlights: four scores ── */
+.about-scores {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.9rem 1rem;
+  margin: 0.1rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.about-score {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.3rem 0.7rem;
+  min-width: 0;
+}
+
+/* big number — write the unit in <small>, e.g. 93.6<small>%</small> */
+.score-value {
+  font-family: var(--font-body, 'Rajdhani', sans-serif);
+  font-size: 2.1rem;
+  font-weight: 700;
+  line-height: 1;
+  color: #fff;
+  text-shadow: 0 0 10px rgba(0, 229, 255, 0.4);
+}
+
+.score-value small {
+  margin-left: 0.1em;
+  font-size: 0.55em;
+  color: var(--hud-cyan, #00e5ff);
+}
+
+.score-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  min-width: 0;
+  padding-left: 0.7rem;
+  border-left: 1px solid rgba(0, 229, 255, 0.3);
+}
+
+.score-label {
+  font-family: var(--font-body, 'Rajdhani', sans-serif);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.1;
+  color: #fff;
+}
+
+.score-meta {
+  font-family: var(--font-hud, 'Orbitron', sans-serif);
+  font-size: 0.58rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(224, 235, 245, 0.9);
+}
+
+/* ── Small screens ── */
+@media (max-width: 420px) {
+  .about-card {
+    padding: 1.1rem 2.6rem 1.2rem 1rem;
+    column-gap: 0.9rem;
+  }
+
+  .about-scores {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* ── Entrance: cards slide in one after another when the panel opens ── */
+.about-card {
+  opacity: 0;
+}
+
+.about-panel.visible .about-card {
+  animation: aboutCardIn 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.about-panel.visible .about-card:nth-child(1) { animation-delay: 0.35s; }
+.about-panel.visible .about-card:nth-child(2) { animation-delay: 0.5s; }
+.about-panel.visible .about-card:nth-child(3) { animation-delay: 0.65s; }
+
+@keyframes aboutCardIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-24px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .about-card,
+  .about-panel.visible .about-card {
+    opacity: 1;
+    animation: none;
+  }
+}

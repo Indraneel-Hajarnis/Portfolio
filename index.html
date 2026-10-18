@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio</title>
+  <meta name="description"
+    content="Personal portfolio — Computer Science student showcasing projects, education, and experience." />
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <link rel="stylesheet" href="assets/css/hero.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=Inter:wght@400;600&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="assets/css/loading.css" />
+  <link rel="stylesheet" href="assets/css/shapegrid.css" />
+  <link rel="stylesheet" href="assets/css/about.css" />
+  <link rel="stylesheet" href="assets/css/about-cards.css" />
+  <link rel="stylesheet" href="assets/css/education.css" />
+  <link rel="stylesheet" href="assets/css/skills.css" />
+  <link rel="stylesheet" href="assets/css/projects.css" />
+  <link rel="stylesheet" href="assets/css/certifications.css" />
+  <link rel="stylesheet" href="assets/css/contact.css" />
+  <!-- Runs before first paint so returning visitors never see the intro -->
+  <script src="assets/js/loading.js"></script>
+</head>
+
+<body>
+  <!-- Loading screen -->
+  <div class="container">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>
+  </div>
+
+  <!-- Navigation menu sits above hero with stars showing behind it -->
+  <nav id="top-menu" class="navbar">
+    <div class="nav-left">
+      <div class="nav-brand-rect"></div>
+      <span class="nav-brand-name">Indraneel Hajarnis</span>
+    </div>
+    <div class="nav-links" id="nav-links">
+      <button class="nav-btn" onclick="location.hash='about'"> About </button>
+      <button class="nav-btn" onclick="history.replaceState(null, '', '#education')"> Education </button>
+      <button class="nav-btn" onclick="location.hash='skills'"> Skills </button>
+      <button class="nav-btn" onclick="location.hash='projects'"> Projects </button>
+      <button class="nav-btn" onclick="location.hash='certifications'"> Certifications </button>
+      <button class="nav-btn" onclick="location.hash='contact'"> Contact </button>
+    </div>
+    <!-- Mobile menu toggle (shown only on narrow screens) -->
+    <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Open navigation menu"
+      aria-expanded="false" aria-controls="nav-links">
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+    </button>
+  </nav>
+  <div id="loading-screen">
+    <div class="load-widget">
+      <!-- Blinking label -->
+      <span class="load-label">Loading...</span>
+
+      <!-- Bar frame with rails + segment track -->
+      <div class="load-bar-frame">
+        <!-- Corner brackets -->
+        <span class="load-corner load-corner--tl"></span>
+        <span class="load-corner load-corner--tr"></span>
+        <span class="load-corner load-corner--bl"></span>
+        <span class="load-corner load-corner--br"></span>
+
+        <!-- Top decorative rail -->
+        <div class="load-rail load-rail--top"></div>
+
+        <!-- Segment track — 16 cells, sweep overlay via ::after -->
+        <div class="load-track" id="load-track">
+          <div class="load-seg"></div>
+          <div class="load-seg"></div>
+          <div class="load-seg"></div>
+          <div class="load-seg"></div>
+          <div class="load-seg"></div>
+          <div class="load-seg"></div>
+          <div class="load-seg"></div>
+          <div class="load-seg"></div>
+          <div class="load-seg"></div>
+          <div class="load-seg"></div>
+          <div class="load-seg"></div>
+          <div class="load-seg"></div>
+          <div class="load-seg"></div>
+          <div class="load-seg"></div>
+          <div class="load-seg"></div>
+          <div class="load-seg"></div>
+        </div>
+
+        <!-- Bottom decorative rail -->
+        <div class="load-rail load-rail--bot"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== HERO / INTRO SECTION ===== -->
+  <section id="hero" class="hero">
+    <div class="hero-inner">
+
+      <!-- LEFT: Info panel -->
+      <div class="hero-info" id="hero-info">
+        <!-- Scan-line decorations -->
+        <div class="info-scanline"></div>
+
+        <!-- HUD corner brackets -->
+        <span class="hud-corner hud-tl"></span>
+        <span class="hud-corner hud-tr"></span>
+        <span class="hud-corner hud-bl"></span>
+        <span class="hud-corner hud-br"></span>
+
+        <h1 class="hero-name" id="hero-name">Indraneel Hajarnis</h1>
+        <p class="hero-tagline" id="hero-tagline">Hi, I'm Indraneel Hajarnis — a Computer Engineering student, developer, and technology enthusiast passionate about building innovative solutions and exploring the possibilities of AI, software engineering, and cybersecurity. I love turning ideas into impactful digital experiences through code.</p>
+        <!-- Hi, I'm Indraneel Hajarnis, a Third Year B.Tech Student at VJTI, Mumbai studying Computer Engineering with minors in Cybersecurity. I have a passion for software development and open source contribution. -->
+
+        <div class="hero-links" id="hero-links">
+          <a href="https://github.com/Indraneel-Hajarnis" class="hero-link-btn" aria-label="GitHub" target="_blank"
+            rel="noopener noreferrer">
+            <svg class="btn-svg-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="12" cy="12" r="12" fill="#1a1a1a" />
+              <path fill="#fff"
+                d="M12 3.7C7.4 3.7 3.7 7.4 3.7 12c0 3.7 2.4 6.8 5.7 7.9.4.1.6-.2.6-.4v-1.4c-2.4.5-2.9-1.1-2.9-1.1-.4-1-.9-1.3-.9-1.3-.7-.5.1-.5.1-.5.8.1 1.2.8 1.2.8.7 1.2 1.9.9 2.3.7.1-.5.3-.9.5-1.1-1.9-.2-3.8-.9-3.8-4.1 0-.9.3-1.6.8-2.2-.1-.2-.4-1 .1-2.1 0 0 .7-.2 2.2.8.6-.2 1.3-.3 2-.3s1.4.1 2 .3c1.5-1 2.2-.8 2.2-.8.5 1.1.2 1.9.1 2.1.5.6.8 1.3.8 2.2 0 3.2-1.9 3.9-3.8 4.1.3.3.6.8.6 1.6v2.4c0 .2.1.5.6.4 3.3-1.1 5.7-4.2 5.7-7.9 0-4.6-3.7-8.3-8.3-8.3z" />
+            </svg>
+            <span>GitHub</span>
+          </a>
+          <a href="https://www.linkedin.com/in/indraneel-hajarnis-082438330/" class="hero-link-btn"
+            aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+            <svg class="btn-svg-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <rect width="24" height="24" rx="4" fill="#0A66C2" />
+              <path fill="#fff"
+                d="M7.2 9.6H4.8V19.2H7.2V9.6zm-1.2-1a1.4 1.4 0 1 0 0-2.8 1.4 1.4 0 0 0 0 2.8zm14 10.6h-2.4v-4.7c0-.9 0-2-1.3-2s-1.5 1-1.5 2v4.7H12.4V9.6h2.3v1h.1c.4-.7 1.2-1.2 2.1-1.2 2.2 0 2.6 1.4 2.6 3.3v6.5z" />
+            </svg>
+            <span>LinkedIn</span>
+          </a>
+          <a href="https://mail.google.com/mail/?view=cm&to=indraneel.hajarnis@gmail.com" class="hero-link-btn"
+            aria-label="Email" target="_blank" rel="noopener noreferrer">
+            <i class="fa-solid fa-envelope"></i><span>Email</span>
+          </a>
+          <a href="https://leetcode.com/u/Indraneel_Hajarnis/" class="hero-link-btn" aria-label="Leetcode"
+            target="_blank" rel="noopener noreferrer">
+            <svg class="btn-svg-icon" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M29 6L14 21l15 15" stroke="#FFA116" stroke-width="5" stroke-linecap="round"
+                stroke-linejoin="round" />
+              <path d="M14 21L29 36" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"
+                opacity="0.5" />
+              <line x1="18" y1="28" x2="38" y2="28" stroke="#B3B3B3" stroke-width="4" stroke-linecap="round" />
+            </svg>
+            <span>LeetCode</span>
+          </a>
+          <a href="https://codolio.com/profile/Indraneel_Hajarnis" class="hero-link-btn" aria-label="Codolio"
+            target="_blank" rel="noopener noreferrer">
+            <svg class="btn-svg-icon" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- Owl body -->
+              <ellipse cx="25" cy="30" rx="14" ry="14" fill="#C46B0A" />
+              <ellipse cx="25" cy="30" rx="10" ry="10" fill="#E8892A" />
+              <!-- Eyes -->
+              <circle cx="19" cy="27" r="5" fill="#fff" />
+              <circle cx="31" cy="27" r="5" fill="#fff" />
+              <circle cx="19" cy="27" r="3" fill="#4A2C0A" />
+              <circle cx="31" cy="27" r="3" fill="#4A2C0A" />
+              <circle cx="20" cy="26" r="1" fill="#fff" />
+              <circle cx="32" cy="26" r="1" fill="#fff" />
+              <!-- Glasses frames -->
+              <circle cx="19" cy="27" r="5.5" stroke="#8B5E1A" stroke-width="1.5" fill="none" />
+              <circle cx="31" cy="27" r="5.5" stroke="#8B5E1A" stroke-width="1.5" fill="none" />
+              <line x1="24.5" y1="27" x2="25.5" y2="27" stroke="#8B5E1A" stroke-width="1.5" />
+              <!-- Beak -->
+              <path d="M22 33 L25 36 L28 33" fill="#FFA116" />
+              <!-- Ears -->
+              <path d="M13 20 L16 12 L20 20" fill="#C46B0A" />
+              <path d="M37 20 L34 12 L30 20" fill="#C46B0A" />
+            </svg>
+            <span>Codolio</span>
+          </a>
+          <a href="#" class="hero-link-btn" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+            <svg class="btn-svg-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="ig-grad" x1="0%" y1="100%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#f09433" />
+                  <stop offset="25%" stop-color="#e6683c" />
+                  <stop offset="50%" stop-color="#dc2743" />
+                  <stop offset="75%" stop-color="#cc2366" />
+                  <stop offset="100%" stop-color="#bc1888" />
+                </linearGradient>
+              </defs>
+              <rect width="24" height="24" rx="5.5" fill="url(#ig-grad)" />
+              <circle cx="12" cy="12" r="4" stroke="#fff" stroke-width="1.6" fill="none" />
+              <circle cx="17.2" cy="6.8" r="1" fill="#fff" />
+              <rect x="3" y="3" width="18" height="18" rx="5.5" stroke="#fff" stroke-width="1.5" fill="none"
+                opacity="0.5" />
+            </svg>
+            <span>Instagram</span>
+          </a>
+        </div>
+
+        <div class="hero-bottom-bar" id="hero-bottom-bar">
+          <button id="view-resume-btn" class="hero-bottom-bar-btn" aria-label="View Resume">
+            <svg class="btn-svg-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z" stroke="currentColor"
+                stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+              <polyline points="14 2 14 8 20 8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+                stroke-linejoin="round" />
+              <circle cx="12" cy="13" r="2.5" stroke="currentColor" stroke-width="1.4" fill="none" />
+              <path d="M9 17.5c0-1.7 1.3-3 3-3s3 1.3 3 3" stroke="currentColor" stroke-width="1.4"
+                stroke-linecap="round" fill="none" />
+              <line x1="8" y1="19.5" x2="16" y2="19.5" stroke="currentColor" stroke-width="1.2"
+                stroke-linecap="round" />
+            </svg>
+            <span>View Resume</span>
+          </button>
+          <a href="#projects" class="hero-bottom-bar-btn" aria-label="View Projects">
+            <svg class="btn-svg-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="24" height="24" rx="6" fill="#5C6BC0" />
+              <path d="M8.5 9.5L6 12l2.5 2.5" stroke="#fff" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round" />
+              <path d="M15.5 9.5L18 12l-2.5 2.5" stroke="#fff" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round" />
+              <line x1="13.5" y1="7.5" x2="10.5" y2="16.5" stroke="#fff" stroke-width="1.6" stroke-linecap="round" />
+            </svg>
+            <span>View Projects</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Connecting beam between info panel and scanner -->
+      <div class="hero-connector">
+        <div class="connector-line"></div>
+        <div class="connector-pulse"></div>
+      </div>
+
+      <!-- RIGHT: Scanner frame around photo -->
+      <div class="hero-scanner" id="hero-scanner">
+        <!-- Outer rotating ring -->
+        <div class="scanner-ring scanner-ring--outer">
+          <svg viewBox="0 0 380 380">
+            <circle cx="190" cy="190" r="180" />
+            <!-- Tick marks -->
+            <line x1="190" y1="0" x2="190" y2="20" />
+            <line x1="380" y1="190" x2="360" y2="190" />
+            <line x1="190" y1="380" x2="190" y2="360" />
+            <line x1="0" y1="190" x2="20" y2="190" />
+          </svg>
+        </div>
+
+        <!-- Middle tech ring -->
+        <div class="scanner-ring scanner-ring--mid">
+          <svg viewBox="0 0 380 380">
+            <circle cx="190" cy="190" r="160" stroke-dasharray="12 12" />
+          </svg>
+        </div>
+
+        <!-- Arc segments (inner small circle bits) -->
+        <div class="scanner-arc scanner-arc--1">
+          <svg viewBox="0 0 380 380">
+            <circle cx="190" cy="190" r="140" stroke-dasharray="80 800" />
+          </svg>
+        </div>
+        <div class="scanner-arc scanner-arc--2">
+          <svg viewBox="0 0 380 380">
+            <circle cx="190" cy="190" r="140" stroke-dasharray="40 840" stroke-dashoffset="300" />
+          </svg>
+        </div>
+        <div class="scanner-arc scanner-arc--3">
+          <svg viewBox="0 0 380 380">
+            <circle cx="190" cy="190" r="140" stroke-dasharray="160 720" stroke-dashoffset="600" />
+          </svg>
+        </div>
+
+        <!-- Scanner sweep (rotating radar line) -->
+        <div class="scanner-sweep"></div>
+
+        <!-- Crosshair -->
+        <div class="scanner-crosshair">
+          <div class="crosshair-h"></div>
+          <div class="crosshair-v"></div>
+        </div>
+
+        <!-- Photo circle -->
+        <div class="scanner-photo-wrap">
+          <!-- Replace src with your own photo later -->
+          <img id="hero-photo" class="scanner-photo" src="assets/images/profile.png" alt="Profile photograph" />
+          <!-- Scan-line overlay on the photo -->
+          <div class="photo-scan-overlay"></div>
+        </div>
+
+        <!-- HUD data readouts -->
+        <div class="scanner-hud-data hud-data--top">SCAN COMPLETE</div>
+        <div class="scanner-hud-data hud-data--bottom">ID VERIFIED</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Main content sections -->
+  <!-- ===== ABOUT SECTION ===== -->
+  <section id="about">
+    <div class="about-panel">
+      <!-- HUD corner brackets -->
+      <span class="hud-corner hud-tl"></span>
+      <span class="hud-corner hud-tr"></span>
+      <span class="hud-corner hud-bl"></span>
+      <span class="hud-corner hud-br"></span>
+
+      <div class="about-inner">
+
+        <!-- LEFT: three information cards (replace the picture) -->
+        <div class="about-cards-col">
+
+          <!-- Card 1: Current — replace each "To be added" with your text -->
+          <article class="about-card">
+            <span class="about-card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" /><circle cx="12" cy="12" r="4" /><line x1="12" y1="1.5" x2="12" y2="5" /><line x1="12" y1="19" x2="12" y2="22.5" /><line x1="1.5" y1="12" x2="5" y2="12" /><line x1="19" y1="12" x2="22.5" y2="12" /></svg>
+            </span>
+            <div class="about-card-body">
+              <h3 class="about-card-label">Current</h3>
+              <h4 class="about-card-title">Computer Engineering (minors in Cybersecurity)</h4>
+              <p class="about-card-text">Veermata Jijabai Technological Institute (VJTI), Mumbai</p>
+            </div>
+            <span class="about-card-index" aria-hidden="true">01</span>
+          </article>
+
+          <!-- Card 2: Academic Highlights — four scores.
+               For each score: big number (add the unit inside <small>, e.g. 93.6<small>%</small>),
+               a label (e.g. Class X) and a small line (e.g. board and year). -->
+          <article class="about-card">
+            <span class="about-card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 2.5 14.6 9.4 21.5 12 14.6 14.6 12 21.5 9.4 14.6 2.5 12 9.4 9.4Z" /></svg>
+            </span>
+            <div class="about-card-body">
+              <h3 class="about-card-label">Academic Highlights</h3>
+              <ul class="about-scores">
+                <li class="about-score">
+                  <span class="score-value">97.6<small>%</small></span>
+                  <span class="score-info"><span class="score-label">Class X ICSE</span></span>
+                </li>
+                <li class="about-score">
+                  <span class="score-value">93.83<small>%</small></span>
+                  <span class="score-info"><span class="score-label">Class XII HSC</span></span>
+                </li>
+                <li class="about-score">
+                  <span class="score-value">98.87<small>%ile</small></span>
+                  <span class="score-info"><span class="score-label">JEE Mains 2024</span></span>
+                </li>
+                <li class="about-score">
+                  <span class="score-value">99.98<small>%ile</small></span>
+                  <span class="score-info"><span class="score-label">MHT CET 2024</span></span>
+                </li>
+              </ul>
+            </div>
+            <span class="about-card-index" aria-hidden="true">02</span>
+          </article>
+
+          <!-- Card 3: Currently Exploring -->
+          <article class="about-card">
+            <span class="about-card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5" /><polygon points="15.5 8.5 13.5 13.5 8.5 15.5 10.5 10.5 15.5 8.5" /></svg>
+            </span>
+            <div class="about-card-body">
+              <h3 class="about-card-label">Currently Exploring</h3>
+              <p class="about-card-text">Cybersecurity, Cloud Computing, UI/UX Design</p>
+            </div>
+            <span class="about-card-index" aria-hidden="true">03</span>
+          </article>
+        </div>
+
+        <!-- RIGHT: Information (70% of box width) -->
+        <div class="about-info-col">
+          <h2 class="about-title">ABOUT</h2>
+          <h3 class="about-name">Indraneel Amol Hajarnis</h3>
+
+          <!-- Subheading — to be filled later -->
+          <p class="about-subheading">Full-stack developer, AI/ML Engineer & Tech Enthusiast</p>
+
+          <!-- Paragraph — to be filled later -->
+          <p class="about-bio">I'm a Computer Engineering student at VJTI, Mumbai, with a strong interest in Full-stack Development, Artificial Intelligence, Machine Learning, Deep Learning and problem-solving.</p>
+          <p class="about-bio">I enjoy turning real-world challenges into robust working systems: Clustering 20000+ DNA sequences to identify species, Managing personal spending and subscriptions, Optimizing e-governance and issue reporting, and helping candidates build effective Resumes.</p>
+          <p class="about-bio">I also love to solve algorithmic problems, contribute to open source projects, and participate in hackathons. I continuously challenge myself to learn, experiment, and build better solutions. I'm always looking for opportunities to collaborate, innovate, and grow as a developer.</p>
+
+          <hr class="about-divider">
+
+          <!-- 3 boxes: Experience, Speciality, Hackathons -->
+          <div class="about-stats">
+            <div class="about-stat-box">
+              <div class="stat-title">Experience</div>
+              <div class="stat-value">Fresher / Student</div>
+            </div>
+            <div class="about-stat-box">
+              <div class="stat-title">Speciality</div>
+              <div class="stat-value">Full-stack Development and AI/ML</div>
+            </div>
+            <div class="about-stat-box">
+              <div class="stat-title">Hackathons</div>
+              <div class="stat-value">4</div>
+            </div>
+          </div>
+
+          <!-- 2 Action buttons: View Projects & Get in touch -->
+          <div class="about-actions">
+            <a href="#projects" class="hero-link-btn" aria-label="View Projects">
+              <i class="fa-solid fa-code"></i>
+              <span>View Projects</span>
+            </a>
+            <a href="#contact" class="hero-link-btn" aria-label="Get in touch">
+              <i class="fa-solid fa-envelope"></i>
+              <span>Get in touch</span>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="education">
+    <div class="edu-wrap">
+      <h2 class="edu-title">EDUCATION</h2>
+
+      <div class="edu-timeline" id="edu-timeline">
+        <!-- Main circuit trace (drawn left to right on desktop, top to bottom on mobile) -->
+        <div class="edu-axis" id="edu-axis" aria-hidden="true">
+          <span class="edu-axis-ticks"></span>
+          <span class="edu-axis-line"></span>
+          <span class="edu-axis-head"></span>
+        </div>
+
+        <!-- Box 1: Schooling -->
+        <div class="edu-item edu-item--1 edu-item--up">
+          <article class="edu-card">
+            <span class="hud-corner hud-tl"></span>
+            <span class="hud-corner hud-tr"></span>
+            <span class="hud-corner hud-bl"></span>
+            <span class="hud-corner hud-br"></span>
+            <span class="edu-card-index">01</span>
+            <h3 class="edu-card-label">Schooling</h3>
+            <!-- Replace the "To be added" texts below with your details -->
+            <h4 class="edu-card-institution">VPMS Orion ICSE School, Mumbai</h4>
+            <p class="edu-card-duration">2012-2022</p>
+            <p class="edu-card-score">97.6 % (10th ICSE)</p>
+            <h5 class="edu-card-subhead">Coursework</h5>
+            <div class="edu-chips">
+              <span class="edu-chip">Mathematics</span>
+              <span class="edu-chip">Physics</span>
+              <span class="edu-chip">Chemistry</span>
+              <span class="edu-chip">Biology</span>
+              <span class="edu-chip">English</span>
+              <span class="edu-chip">Social Studies</span>
+              <span class="edu-chip">Computer Science</span>
+            </div>
+          </article>
+          <div class="edu-connector" aria-hidden="true">
+            <svg class="edu-trace edu-trace-h" viewBox="0 0 60 90" focusable="false">
+              <path class="edu-path" pathLength="100" d="M30 45 V33 L42 21 V0" />
+              <path class="edu-stub" pathLength="100" d="M30 39 H16" />
+              <circle class="edu-pad" cx="42" cy="0" r="3" />
+              <circle class="edu-pad" cx="13.5" cy="39" r="2.5" />
+              <circle class="edu-node-ring" cx="30" cy="45" r="10" />
+              <circle class="edu-node" cx="30" cy="45" r="6" />
+            </svg>
+            <svg class="edu-trace edu-trace-v" viewBox="0 0 48 60" focusable="false">
+              <path class="edu-path" pathLength="100" d="M14 28 H20 L28 36 H48" />
+              <path class="edu-stub" pathLength="100" d="M28 36 V48" />
+              <circle class="edu-pad" cx="48" cy="36" r="3" />
+              <circle class="edu-pad" cx="28" cy="50.5" r="2.5" />
+              <circle class="edu-node-ring" cx="14" cy="28" r="10" />
+              <circle class="edu-node" cx="14" cy="28" r="6" />
+            </svg>
+          </div>
+        </div>
+
+        <!-- Box 2: Higher Secondary Education -->
+        <div class="edu-item edu-item--2 edu-item--down">
+          <article class="edu-card">
+            <span class="hud-corner hud-tl"></span>
+            <span class="hud-corner hud-tr"></span>
+            <span class="hud-corner hud-bl"></span>
+            <span class="hud-corner hud-br"></span>
+            <span class="edu-card-index">02</span>
+            <h3 class="edu-card-label">Higher Secondary Education</h3>
+            <!-- Replace the "To be added" texts below with your details -->
+            <h4 class="edu-card-institution">Alpha Jr. College of Science and Commerce, Mumbai</h4>
+            <p class="edu-card-duration">2022-2024</p>
+            <p class="edu-card-score">93.83 % (12th HSC)</p>
+            <h5 class="edu-card-subhead">Coursework</h5>
+            <div class="edu-chips">
+              <span class="edu-chip">Mathematics</span>
+              <span class="edu-chip">Physics</span>
+              <span class="edu-chip">Chemistry</span>
+              <span class="edu-chip">English</span>
+              <span class="edu-chip">Computer Science</span>
+            </div>
+          </article>
+          <div class="edu-connector" aria-hidden="true">
+            <svg class="edu-trace edu-trace-h" viewBox="0 0 60 90" focusable="false">
+              <path class="edu-path" pathLength="100" d="M30 45 V57 L18 69 V90" />
+              <path class="edu-stub" pathLength="100" d="M30 51 H44" />
+              <circle class="edu-pad" cx="18" cy="90" r="3" />
+              <circle class="edu-pad" cx="46.5" cy="51" r="2.5" />
+              <circle class="edu-node-ring" cx="30" cy="45" r="10" />
+              <circle class="edu-node" cx="30" cy="45" r="6" />
+            </svg>
+            <svg class="edu-trace edu-trace-v" viewBox="0 0 48 60" focusable="false">
+              <path class="edu-path" pathLength="100" d="M14 28 H20 L28 36 H48" />
+              <path class="edu-stub" pathLength="100" d="M28 36 V48" />
+              <circle class="edu-pad" cx="48" cy="36" r="3" />
+              <circle class="edu-pad" cx="28" cy="50.5" r="2.5" />
+              <circle class="edu-node-ring" cx="14" cy="28" r="10" />
+              <circle class="edu-node" cx="14" cy="28" r="6" />
+            </svg>
+          </div>
+        </div>
+
+        <!-- Box 3: Bachelor's Degree -->
+        <div class="edu-item edu-item--3 edu-item--up">
+          <article class="edu-card">
+            <span class="hud-corner hud-tl"></span>
+            <span class="hud-corner hud-tr"></span>
+            <span class="hud-corner hud-bl"></span>
+            <span class="hud-corner hud-br"></span>
+            <span class="edu-card-index">03</span>
+            <h3 class="edu-card-label">Undergraduate Education</h3>
+            <!-- Replace the "To be added" texts below with your details -->
+            <h4 class="edu-card-institution">Veermata Jijabai Technological Institute (VJTI), Mumbai</h4>
+            <p class="edu-card-duration">B.Tech in Computer Engineering | 2024-2028</p>
+            <p class="edu-card-score">9.41 CGPA (Currently in Third Year)</p>
+            <h5 class="edu-card-subhead">Coursework</h5>
+            <div class="edu-chips">
+              <span class="edu-chip">Data Structures and Algorithms</span>
+              <span class="edu-chip">AI</span>
+              <span class="edu-chip">Object-Oriented Programming</span>
+              <span class="edu-chip">DBMS</span>
+              <span class="edu-chip">Computer Networks</span>
+              <span class="edu-chip">Operating Systems</span>
+              <span class="edu-chip">Cybersecurity</span>
+              <span class="edu-chip">Machine Learning</span>
+              <span class="edu-chip">Linux</span>
+              <span class="edu-chip">Computer Architecture</span>
+            </div>
+          </article>
+          <div class="edu-connector" aria-hidden="true">
+            <svg class="edu-trace edu-trace-h" viewBox="0 0 60 90" focusable="false">
+              <path class="edu-path" pathLength="100" d="M30 45 V33 L18 21 V0" />
+              <path class="edu-stub" pathLength="100" d="M30 39 H44" />
+              <circle class="edu-pad" cx="18" cy="0" r="3" />
+              <circle class="edu-pad" cx="46.5" cy="39" r="2.5" />
+              <circle class="edu-node-ring" cx="30" cy="45" r="10" />
+              <circle class="edu-node" cx="30" cy="45" r="6" />
+            </svg>
+            <svg class="edu-trace edu-trace-v" viewBox="0 0 48 60" focusable="false">
+              <path class="edu-path" pathLength="100" d="M14 28 H20 L28 36 H48" />
+              <path class="edu-stub" pathLength="100" d="M28 36 V48" />
+              <circle class="edu-pad" cx="48" cy="36" r="3" />
+              <circle class="edu-pad" cx="28" cy="50.5" r="2.5" />
+              <circle class="edu-node-ring" cx="14" cy="28" r="10" />
+              <circle class="edu-node" cx="14" cy="28" r="6" />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="skills">
+    <div class="skills-wrap">
+      <h2 class="skills-title">SKILLS</h2>
+      <p class="skills-subtitle">The Tech Stack</p>
+    </div>
+
+    <div class="skills-slider" id="skills-slider" tabindex="0" role="region" aria-roledescription="carousel"
+      aria-label="Skills, frameworks and tools. Use the left and right arrow keys to change the selected skill.">
+      <span class="skills-rail" aria-hidden="true"></span>
+
+      <!-- To add a skill: copy one <li> below, change the picture file name and the skill name.
+           Skill pictures go in the folder assets/images/skills/ (e.g. assets/images/skills/html.png).
+           The slider updates itself. A skill whose picture is missing shows a placeholder frame. -->
+      <ul class="skills-track" id="skills-track">
+          <li class="skill-card">
+            <span class="skill-img-box"><img class="skill-img" src="assets/images/skills/cpp.png" alt="" decoding="async"></span>
+            <span class="skill-name">C++</span>
+          </li>
+          <li class="skill-card">
+            <span class="skill-img-box"><img class="skill-img" src="assets/images/skills/python.png" alt="" decoding="async"></span>
+            <span class="skill-name">Python</span>
+          </li>
+          <li class="skill-card">
+            <span class="skill-img-box"><img class="skill-img" src="assets/images/skills/html.png" alt="" decoding="async"></span>
+            <span class="skill-name">HTML</span>
+          </li>
+          <li class="skill-card">
+            <span class="skill-img-box"><img class="skill-img" src="assets/images/skills/css.png" alt="" decoding="async"></span>
+            <span class="skill-name">CSS</span>
+          </li>
+          <li class="skill-card">
+            <span class="skill-img-box"><img class="skill-img" src="assets/images/skills/tailwind.png" alt="" decoding="async"></span>
+            <span class="skill-name">Tailwind</span>
+          </li>
+          <li class="skill-card">
+            <span class="skill-img-box"><img class="skill-img" src="assets/images/skills/javascript.png" alt="" decoding="async"></span>
+            <span class="skill-name">JavaScript</span>
+          </li>
+          <li class="skill-card">
+            <span class="skill-img-box"><img class="skill-img" src="assets/images/skills/react.png" alt="" decoding="async"></span>
+            <span class="skill-name">React</span>
+          </li>
+          <li class="skill-card">
+            <span class="skill-img-box"><img class="skill-img" src="assets/images/skills/nodejs.png" alt="" decoding="async"></span>
+            <span class="skill-name">Node.js</span>
+          </li>
+          <li class="skill-card">
+            <span class="skill-img-box"><img class="skill-img" src="assets/images/skills/express.png" alt="" decoding="async"></span>
+            <span class="skill-name">Express.js</span>
+          </li>
+          <li class="skill-card">
+            <span class="skill-img-box"><img class="skill-img" src="assets/images/skills/fastapi.png" alt="" decoding="async"></span>
+            <span class="skill-name">FastAPI</span>
+          </li>
+          <li class="skill-card">
+            <span class="skill-img-box"><img class="skill-img" src="assets/images/skills/mongodb.png" alt="" decoding="async"></span>
+            <span class="skill-name">MongoDB</span>
+          </li>
+          <li class="skill-card">
+            <span class="skill-img-box"><img class="skill-img" src="assets/images/skills/mysql.png" alt="" decoding="async"></span>
+            <span class="skill-name">MySQL</span>
+          </li>
+          <li class="skill-card">
+            <span class="skill-img-box"><img class="skill-img" src="assets/images/skills/tf.png" alt="" decoding="async"></span>
+            <span class="skill-name">TensorFlow</span>
+          </li>
+          <li class="skill-card">
+            <span class="skill-img-box"><img class="skill-img" src="assets/images/skills/pytorch.png" alt="" decoding="async"></span>
+            <span class="skill-name">PyTorch</span>
+          </li>
+          <li class="skill-card">
+            <span class="skill-img-box"><img class="skill-img" src="assets/images/skills/vscode.png" alt="" decoding="async"></span>
+            <span class="skill-name">VS Code</span>
+          </li>
+          <li class="skill-card">
+            <span class="skill-img-box"><img class="skill-img" src="assets/images/skills/linux.png" alt="" decoding="async"></span>
+            <span class="skill-name">Linux</span>
+          </li>
+          <li class="skill-card">
+            <span class="skill-img-box"><img class="skill-img" src="assets/images/skills/github.png" alt="" decoding="async"></span>
+            <span class="skill-name">GitHub</span>
+          </li>
+          <li class="skill-card">
+            <span class="skill-img-box"><img class="skill-img" src="assets/images/skills/dsa.png" alt="" decoding="async"></span>
+            <span class="skill-name">Data Structures & Algorithms</span>
+          </li>
+      </ul>
+
+      <!-- Highlight box in the centre -->
+      <div class="skills-selector" aria-hidden="true">
+        <span class="skills-selector-tab"></span>
+        <span class="hud-corner hud-tl"></span>
+        <span class="hud-corner hud-tr"></span>
+        <span class="hud-corner hud-bl"></span>
+        <span class="hud-corner hud-br"></span>
+      </div>
+    </div>
+
+    <div class="skills-wrap">
+      <div class="skills-controls">
+        <button class="skills-btn" id="skills-prev" type="button" aria-label="Previous skill">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="15 5 8 12 15 19" /></svg>
+        </button>
+
+        <div class="skills-readout">
+          <span class="skills-readout-label">Selected</span>
+          <span class="skills-readout-name" id="skills-current-name"></span>
+          <span class="skills-readout-count" id="skills-count"></span>
+        </div>
+
+        <button class="skills-btn" id="skills-next" type="button" aria-label="Next skill">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 5 16 12 9 19" /></svg>
+        </button>
+
+        <button class="skills-btn" id="skills-pause" type="button" aria-label="Pause automatic rotation"
+          aria-pressed="false">
+          <svg class="icon-pause" viewBox="0 0 24 24" aria-hidden="true">
+            <line x1="9" y1="5" x2="9" y2="19" />
+            <line x1="15" y1="5" x2="15" y2="19" />
+          </svg>
+          <svg class="icon-play" viewBox="0 0 24 24" aria-hidden="true"><polygon points="8 5 19 12 8 19" /></svg>
+        </button>
+      </div>
+    </div>
+  </section>
+  <section id="projects">
+    <div class="projects-wrap">
+      <h2 class="projects-title">PROJECTS</h2>
+    </div>
+
+    <div class="projects-slider" id="projects-slider" role="region" aria-roledescription="carousel"
+      aria-label="Projects. Use the left and right arrow keys or the buttons to change the project.">
+      <!-- Cards are built from projects-data.js using the template at the bottom of this section -->
+      <ul class="projects-track" id="projects-track"></ul>
+    </div>
+
+    <div class="projects-wrap">
+      <div class="projects-controls">
+        <button class="projects-btn" id="projects-prev" type="button" aria-label="Previous project">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="15 5 8 12 15 19" /></svg>
+        </button>
+        <span class="projects-count" id="projects-count" aria-live="polite"></span>
+        <button class="projects-btn" id="projects-next" type="button" aria-label="Next project">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 5 16 12 9 19" /></svg>
+        </button>
+        <span class="projects-hint" aria-hidden="true">&larr; &rarr; keys</span>
+      </div>
+    </div>
+
+    <!-- Reusable project card. Edit this once to change the design of every card. -->
+    <template id="project-card-template">
+      <li class="project-card" role="group" aria-roledescription="slide">
+        <span class="hud-corner hud-tl"></span>
+        <span class="hud-corner hud-tr"></span>
+        <span class="hud-corner hud-bl"></span>
+        <span class="hud-corner hud-br"></span>
+        <span class="project-tab" aria-hidden="true"></span>
+
+        <!-- Information (left, 70%) -->
+        <div class="project-info">
+          <span class="project-index"></span>
+          <h3 class="project-title"></h3>
+          <h4 class="project-subtitle"></h4>
+          <ul class="project-tech" aria-label="Tech stack"></ul>
+          <div class="project-desc"></div>
+          <a class="project-link" href="#projects">
+            <span class="project-link-label">View Project</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7" /><polyline points="8 7 17 7 17 16" /></svg>
+          </a>
+        </div>
+
+        <!-- Image (right, 30%) -->
+        <div class="project-image">
+          <div class="project-image-frame">
+            <span class="hud-corner hud-tl"></span>
+            <span class="hud-corner hud-tr"></span>
+            <span class="hud-corner hud-bl"></span>
+            <span class="hud-corner hud-br"></span>
+            <div class="project-image-placeholder">
+              <i class="fa-solid fa-image" aria-hidden="true"></i>
+              <span>Image</span>
+              <span class="project-image-hint">[ To be added ]</span>
+            </div>
+          </div>
+          
+        </div>
+      </li>
+    </template>
+  </section>
+  <section id="certifications">
+    <div class="certs-wrap">
+      <h2 class="certs-title">Awards and Certifications</h2>
+    </div>
+
+    <div class="certs-slider" id="certs-slider" role="region" aria-roledescription="carousel"
+      aria-label="Awards and certifications. Select a card to view it full size.">
+      <span class="certs-rail" aria-hidden="true"></span>
+
+      <!-- Cards are built from certifications-data.js using the template at the bottom of this section -->
+      <ul class="certs-track" id="certs-track"></ul>
+
+      <!-- Highlight box in the centre -->
+      <div class="certs-selector" aria-hidden="true">
+        <span class="certs-selector-tab"></span>
+        <span class="hud-corner hud-tl"></span>
+        <span class="hud-corner hud-tr"></span>
+        <span class="hud-corner hud-bl"></span>
+        <span class="hud-corner hud-br"></span>
+      </div>
+    </div>
+
+    <div class="certs-wrap">
+      <div class="certs-controls">
+        <button class="certs-btn" id="certs-prev" type="button" aria-label="Previous card">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="15 5 8 12 15 19" /></svg>
+        </button>
+        <span class="certs-count" id="certs-count"></span>
+        <button class="certs-btn" id="certs-next" type="button" aria-label="Next card">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 5 16 12 9 19" /></svg>
+        </button>
+        <button class="certs-btn" id="certs-pause" type="button" aria-label="Pause automatic rotation"
+          aria-pressed="false">
+          <svg class="icon-pause" viewBox="0 0 24 24" aria-hidden="true">
+            <line x1="9" y1="5" x2="9" y2="19" />
+            <line x1="15" y1="5" x2="15" y2="19" />
+          </svg>
+          <svg class="icon-play" viewBox="0 0 24 24" aria-hidden="true"><polygon points="8 5 19 12 8 19" /></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Reusable card. Edit this once to change the design of every card. -->
+    <template id="cert-card-template">
+      <li class="cert-card" role="group" aria-roledescription="slide">
+        <button class="cert-card-btn" type="button" aria-haspopup="dialog">
+          <span class="cert-card-img">
+            <i class="fa-solid fa-award cert-card-placeholder" aria-hidden="true"></i>
+          </span>
+          <span class="cert-card-title"></span>
+          <span class="cert-card-sub"></span>
+        </button>
+      </li>
+    </template>
+  </section>
+  <section id="blog"></section>
+  <section id="contact">
+    <div class="contact-wrap">
+      <h2 class="contact-title">CONTACT</h2>
+
+      <!-- Message form -->
+      <div class="contact-panel">
+        <span class="hud-corner hud-tl"></span>
+        <span class="hud-corner hud-tr"></span>
+        <span class="hud-corner hud-bl"></span>
+        <span class="hud-corner hud-br"></span>
+        <span class="contact-tab" aria-hidden="true"></span>
+
+        <div class="contact-panel-bar">Send a message</div>
+
+        <form id="contact-form" class="contact-form" novalidate>
+          <fieldset>
+            <div class="contact-grid">
+              <div class="contact-field">
+                <div class="contact-label-row">
+                  <label class="contact-label" for="contact-name">Your Name</label>
+                </div>
+                <div class="contact-control">
+                  <input class="contact-input" id="contact-name" name="name" type="text" autocomplete="name"
+                    maxlength="80" placeholder="Enter your name" required aria-describedby="contact-name-error">
+                </div>
+                <p class="contact-error" id="contact-name-error"></p>
+              </div>
+
+              <div class="contact-field">
+                <div class="contact-label-row">
+                  <label class="contact-label" for="contact-email">Your Email</label>
+                </div>
+                <div class="contact-control">
+                  <input class="contact-input" id="contact-email" name="email" type="email" autocomplete="email"
+                    maxlength="120" placeholder="you@example.com" required aria-describedby="contact-email-error">
+                </div>
+                <p class="contact-error" id="contact-email-error"></p>
+              </div>
+
+              <div class="contact-field contact-field--full">
+                <div class="contact-label-row">
+                  <label class="contact-label" for="contact-service">Service Needed</label>
+                </div>
+                <div class="contact-control">
+                  <select class="contact-select" id="contact-service" name="service" required
+                    aria-describedby="contact-service-error">
+                    <option value="" selected disabled>Select a service</option>
+                    <option value="Web Development">Web Development</option>
+                    <option value="AI/ML">AI/ML</option>
+                    <option value="Projects Related">Projects Related</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+                <p class="contact-error" id="contact-service-error"></p>
+              </div>
+
+              <div class="contact-field contact-field--full">
+                <div class="contact-label-row">
+                  <label class="contact-label" for="contact-message">Your Message</label>
+                  <span class="contact-counter" id="contact-counter" aria-hidden="true"></span>
+                </div>
+                <div class="contact-control">
+                  <textarea class="contact-textarea" id="contact-message" name="message" rows="6" maxlength="2000"
+                    placeholder="Write your message here" required
+                    aria-describedby="contact-message-error"></textarea>
+                </div>
+                <p class="contact-error" id="contact-message-error"></p>
+              </div>
+            </div>
+
+            <!-- Anti-spam field: leave empty, hidden from visitors -->
+            <input class="contact-hp" id="contact-website" name="website" type="text" tabindex="-1"
+              autocomplete="off" aria-hidden="true">
+
+            <div class="contact-actions">
+              <button class="contact-submit" id="contact-submit" type="submit">
+                <span class="contact-submit-label">Submit</span>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13" /><polygon points="22 2 15 22 11 13 2 9 22 2" /></svg>
+              </button>
+              <p class="contact-status" id="contact-status" role="status" aria-live="polite"></p>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+
+      <!-- Profile links -->
+      <div class="contact-links">
+        <a href="https://www.linkedin.com/in/indraneel-hajarnis-082438330/" class="hero-link-btn" aria-label="LinkedIn"
+          target="_blank" rel="noopener noreferrer">
+          <svg class="btn-svg-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <rect width="24" height="24" rx="4" fill="#0A66C2" />
+            <path fill="#fff"
+              d="M7.2 9.6H4.8V19.2H7.2V9.6zm-1.2-1a1.4 1.4 0 1 0 0-2.8 1.4 1.4 0 0 0 0 2.8zm14 10.6h-2.4v-4.7c0-.9 0-2-1.3-2s-1.5 1-1.5 2v4.7H12.4V9.6h2.3v1h.1c.4-.7 1.2-1.2 2.1-1.2 2.2 0 2.6 1.4 2.6 3.3v6.5z" />
+          </svg>
+          <span>LinkedIn</span>
+        </a>
+        <a href="https://github.com/Indraneel-Hajarnis" class="hero-link-btn" aria-label="GitHub" target="_blank"
+          rel="noopener noreferrer">
+          <svg class="btn-svg-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="12" r="12" fill="#1a1a1a" />
+            <path fill="#fff"
+              d="M12 3.7C7.4 3.7 3.7 7.4 3.7 12c0 3.7 2.4 6.8 5.7 7.9.4.1.6-.2.6-.4v-1.4c-2.4.5-2.9-1.1-2.9-1.1-.4-1-.9-1.3-.9-1.3-.7-.5.1-.5.1-.5.8.1 1.2.8 1.2.8.7 1.2 1.9.9 2.3.7.1-.5.3-.9.5-1.1-1.9-.2-3.8-.9-3.8-4.1 0-.9.3-1.6.8-2.2-.1-.2-.4-1 .1-2.1 0 0 .7-.2 2.2.8.6-.2 1.3-.3 2-.3s1.4.1 2 .3c1.5-1 2.2-.8 2.2-.8.5 1.1.2 1.9.1 2.1.5.6.8 1.3.8 2.2 0 3.2-1.9 3.9-3.8 4.1.3.3.6.8.6 1.6v2.4c0 .2.1.5.6.4 3.3-1.1 5.7-4.2 5.7-7.9 0-4.6-3.7-8.3-8.3-8.3z" />
+          </svg>
+          <span>GitHub</span>
+        </a>
+        <!-- Add your Instagram profile link (same one as in the intro section) -->
+        <a href="#contact" class="hero-link-btn" aria-label="Instagram">
+          <svg class="btn-svg-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="ig-grad-contact" x1="0%" y1="100%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#f09433" />
+                <stop offset="25%" stop-color="#e6683c" />
+                <stop offset="50%" stop-color="#dc2743" />
+                <stop offset="75%" stop-color="#cc2366" />
+                <stop offset="100%" stop-color="#bc1888" />
+              </linearGradient>
+            </defs>
+            <rect width="24" height="24" rx="5.5" fill="url(#ig-grad-contact)" />
+            <circle cx="12" cy="12" r="4" stroke="#fff" stroke-width="1.6" fill="none" />
+            <circle cx="17.2" cy="6.8" r="1" fill="#fff" />
+            <rect x="3" y="3" width="18" height="18" rx="5.5" stroke="#fff" stroke-width="1.5" fill="none"
+              opacity="0.5" />
+          </svg>
+          <span>Instagram</span>
+        </a>
+      </div>
+
+      <p class="contact-name">Indraneel Hajarnis</p>
+    </div>
+  </section>
+
+  <!-- Resume Modal -->
+  <div id="resume-modal" class="modal-overlay">
+    <div class="modal-content">
+      <!-- HUD corner brackets -->
+      <span class="hud-corner hud-tl"></span>
+      <span class="hud-corner hud-tr"></span>
+      <span class="hud-corner hud-bl"></span>
+      <span class="hud-corner hud-br"></span>
+
+      <div class="resume-container">
+        <!-- Please upload your resume image to assets/docs/resume.png or .jpg -->
+        <!-- And your PDF to assets/docs/resume.pdf for the download button -->
+        <img src="assets/docs/resume.png" alt="Indraneel Hajarnis Resume" class="resume-image">
+      </div>
+      <div class="modal-buttons">
+        <button id="close-resume-btn" class="hero-bottom-bar-btn">
+          <span>Close</span>
+        </button>
+        <a id="download-resume-btn" href="assets/docs/resume.pdf" download="Indraneel-Hajarnis-Resume.pdf"
+          type="application/octet-stream" class="hero-bottom-bar-btn">
+          <span>Download</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Certificate Modal (opens from the centre like the resume pop-up) -->
+  <div id="cert-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Certificate preview"
+    aria-hidden="true">
+    <div class="modal-content">
+      <!-- HUD corner brackets -->
+      <span class="hud-corner hud-tl"></span>
+      <span class="hud-corner hud-tr"></span>
+      <span class="hud-corner hud-bl"></span>
+      <span class="hud-corner hud-br"></span>
+
+      <div class="cert-modal-image">
+        <img id="cert-modal-img" alt="" hidden>
+        <div class="cert-modal-placeholder" id="cert-modal-placeholder">
+          <i class="fa-solid fa-award" aria-hidden="true"></i>
+          <span>Image to be added</span>
+        </div>
+      </div>
+      <!-- Full name of the certificate (shown under the image when the card shows a short name) -->
+      <p class="cert-modal-name" id="cert-modal-name" hidden></p>
+      <div class="modal-buttons">
+        <button id="cert-modal-close" type="button" class="hero-bottom-bar-btn">
+          <span>Close</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/shapegrid.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/education.js"></script>
+  <script src="assets/js/skills.js"></script>
+  <script src="assets/js/projects-data.js"></script>
+  <script src="assets/js/projects.js"></script>
+  <script src="assets/js/certifications-data.js"></script>
+  <script src="assets/js/certifications.js"></script>
+  <script src="assets/js/contact-config.js"></script>
+  <script src="assets/js/contact.js"></script>
+</body>
+
+</html>

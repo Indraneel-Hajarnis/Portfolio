@@ -1,0 +1,32 @@
+/* ShapeGrid background */
+#shape-grid {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: -1; /* behind content */
+}
+
+.grid-square {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #1b2827;
+  box-sizing: border-box;
+  background-color: transparent;
+  animation: driftUp 6s linear infinite;
+}
+
+.grid-square:hover {
+  background-color: #222222;
+}
+
+@keyframes driftUp {
+  from { transform: translateY(100%); }
+  to   { transform: translateY(-100%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .grid-square {
+    animation: none;
+  }
+}
